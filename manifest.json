@@ -1,0 +1,12 @@
+{
+	"manifest_version": 3,
+	"name": "MkM PDF DarkMode",
+	"description": "Set and customize the DarkMode for PDF viewer!",
+	"version": "1.0",
+	"action": {
+	  "default_title": "Set and customize the DarkMode for PDF viewer!",
+	  "default_popup": "index.html",
+	  "default_icon": "./assets/mkmPDF.png"
+	},
+	"permissions": ["activeTab"]
+  }
