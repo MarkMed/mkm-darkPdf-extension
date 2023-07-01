@@ -1,12 +1,36 @@
 {
-	"manifest_version": 3,
-	"name": "MkM PDF DarkMode",
-	"description": "Set and customize the DarkMode for PDF viewer!",
-	"version": "1.0",
-	"action": {
-	  "default_title": "Set and customize the DarkMode for PDF viewer!",
-	  "default_popup": "index.html",
-	  "default_icon": "./assets/mkmPDF.png"
-	},
-	"permissions": ["activeTab"]
-  }
+  "name": "MarkMed Darker PDF",
+  "description": "MarkMed Chrome Extension to turn darker the PDF browser viewer",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": [
+    "webNavigation",
+    "webRequest",
+    "scripting",
+    "activeTab",
+    "clipboardRead",
+    "clipboardWrite",
+    "tabs"
+  ],
+  "host_permissions": [
+    "file:///*.pdf"
+  ],
+  "action": {
+    "default_title": "MarkMed Darker PDF",
+    "default_icon": "./assets/mkmPDF.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "file:///*.pdf"
+      ],
+      "css": ["./styles/modalStyles.css"],
+      "js": [
+        
+        "./scripts/main.js",
+        "./scripts/modal.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
