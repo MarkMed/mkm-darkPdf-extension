@@ -1,6 +1,6 @@
 whiteout = () => {
   const textContent = {
-    modalTitle: "MkM DarkPdf Config",
+    modalTitle: "MkM DarkPDF Config",
     preview: "Result Preview",
     settings: "Settings",
     buttons: {
@@ -53,7 +53,7 @@ whiteout = () => {
     closeBtn = document.getElementById("mkm_closeBtn");
     resultPreviewElem = document.getElementById("resultPreview")
     closeBtn.addEventListener("click", () => {
-      if (!closeBtn.getAttribute("disabled")) {
+      if (!closeBtn.getAttribute("disabled")  || closeBtn.getAttribute("disabled") === "false") {
         const modalContent = document.getElementById("mkm_modalContainer");
         const modalWrapper = document.getElementById("mkm_modalWrapper");
         // modalContent.style.opacity = "0";
