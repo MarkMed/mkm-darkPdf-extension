@@ -1,0 +1,9 @@
+:root{
+	--mkmPrimary: rgba(40, 65, 75, 0.9);
+	/* --mkmSecondary: rgba() */
+	--mkmLight: rgba(224, 230, 204, 0.9);
+	--mkmLight75: rgba(224, 230, 204, 0.75);
+	--mkmLight50: rgba(224, 230, 204, 0.50);
+	--mkmLight25: rgba(224, 230, 204, 0.25);
+	--mkmLight10: rgba(224, 230, 204, 0.1);
+}

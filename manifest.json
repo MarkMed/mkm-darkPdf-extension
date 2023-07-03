@@ -26,7 +26,7 @@
         "file:///*.pdf?*",
         "*://*/*.pdf?*"
       ],
-      "css": ["./styles/modalStyles.css"],
+      "css": ["./styles/variablesStyles.css","./styles/modalStyles.css"],
       "js": [
         
         "./scripts/main.js",

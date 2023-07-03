@@ -13,6 +13,7 @@ whiteout = () => {
   const renderModal = () => {
     let modalWrap = document.createElement("div");
     let closeBtn;
+    let resultPreviewElem;
     modalWrap.id = "mkm_modalWrapper";
     modalWrap.classList.add("smoothTransition");
     modalWrap.innerHTML = `
@@ -21,17 +22,26 @@ whiteout = () => {
                     <h1 class="noMarginPadding titleContainer">${textContent.modalTitle}</h1>
                     <div id="mkm_closeBtn">X</div>
                 </div>
-                <div class="noMarginPadding previewSec">
+                <div id="resultPreview" class="noMarginPadding previewSec">
                     <h3 class="noMarginPadding titleContainer">${textContent.preview}</h3>
-                    <div>
+                    <div id="previewContent">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae dolores quas sunt, obcaecati pariatur consequuntur asperiores molestias ullam? Repudiandae eum enim vero perspiciatis laudantium reiciendis expedita porro nisi saepe? Placeat?
+                        <br/>
+                        <br/>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae dolores quas sunt, obcaecati pariatur consequuntur asperiores molestias ullam? Repudiandae eum enim vero perspiciatis laudantium reiciendis expedita porro nisi saepe? Placeat?
+                        <br/>
+                        <br/>
+                        Beatae dolores quas sunt, obcaecati pariatur consequuntur asperiores molestias ullam?
                     </div>
                 </div>
                 <div class="noMarginPadding settingsSec">
                     
-                    <h2>${textContent.settings}</h2>
-                    <div>
-                        <button id="mkm_btn_off">${textContent.buttons.off}</button>
+                    <h2 class="noMarginPadding">${textContent.settings}</h2>
+                    <div id="inputContainer">
+                        input section
+                    </div>
+                    <div id="buttonContainer">
+                        <button class="ghost" id="mkm_btn_off">${textContent.buttons.off}</button>
                         <button id="mkm_btn_Default">${textContent.buttons.def}</button>
                         <button id="mkm_btn_Apply">${textContent.buttons.apply}</button>
                     </div>
@@ -41,6 +51,7 @@ whiteout = () => {
         `;
     document.body.appendChild(modalWrap);
     closeBtn = document.getElementById("mkm_closeBtn");
+    resultPreviewElem = document.getElementById("resultPreview")
     closeBtn.addEventListener("click", () => {
       if (!closeBtn.getAttribute("disabled")) {
         const modalContent = document.getElementById("mkm_modalContainer");
@@ -57,8 +68,10 @@ whiteout = () => {
     });
 
     document.getElementById("mkm_btn_off").addEventListener("click", () => {
-      applyFilters(0, 0, 0, 0);
+      applyFilters(0, 0, 1, 0);
+      resultPreviewElem.style.filter = `grayscale(0) invert(0) brightness(1) sepia(0)`;
     });
+
     document.getElementById("mkm_btn_Default").addEventListener("click", () => {
       applyFilters(
         defaultValues.grayscaleValue,
@@ -66,7 +79,9 @@ whiteout = () => {
         defaultValues.brightnessValue,
         defaultValues.sepiaValue
       );
+      resultPreviewElem.style.filter = `grayscale(${defaultValues.grayscaleValue}) invert(${defaultValues.invertValue}) brightness(${defaultValues.brightnessValue}) sepia(${defaultValues.sepiaValue})`;
     });
+
     document.getElementById("mkm_btn_Apply").addEventListener("click", () => {
       applyFilters(
         defaultValues.grayscaleValue,
@@ -74,6 +89,7 @@ whiteout = () => {
         defaultValues.brightnessValue,
         defaultValues.sepiaValue
       );
+      resultPreviewElem.style.filter = `grayscale(${defaultValues.grayscaleValue}) invert(${defaultValues.invertValue}) brightness(${defaultValues.brightnessValue}) sepia(${defaultValues.sepiaValue})`;
     });
   };
 

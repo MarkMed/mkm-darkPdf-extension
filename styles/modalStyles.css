@@ -3,19 +3,6 @@
     padding: 0;
 }
 
-.modalHeader {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center
-}
-
-.titleContainer {
-    width: 80%;
-    height: 100%;
-    font-size: 24px;
-}
-
 .smoothTransition {
     transition: 0.5s ease;
 }
@@ -45,19 +32,38 @@
     min-height: 200px;
     width: 50%;
     max-height: 80%;
-    background-color: rgba(84, 84, 84, 0.76);
-    color: rgba(235, 235, 235, 0.976);
+    background-color: var(--mkmPrimary);
+    color: var(--mkmLight);
     border-radius: 10px;
     padding: 10px;
-    padding-left: 15px;
     font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: start;
 }
+
+/*____________ HEADER _____________*/
+.modalHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.titleContainer {
+    width: 80%;
+    height: 100%;
+    font-size: 24px;
+}
+
 #mkm_closeBtn {
     width: 10px;
     height: 10px;
     border-radius: 100%;
-    background-color: rgba(227, 227, 227, 0.198);
-    color: rgba(0, 0, 0, 0.8);
+    background-color: var(--mkmLight50);
     padding: 12px;
     display: flex;
     justify-content: center;
@@ -79,4 +85,72 @@
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     transform: translateY(0px);
 }
+/*____________ PREVIEW _____________*/
+.previewSec {
+    width: calc(30% - 20px);
+    max-height: 350px;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    margin-right: 10px;
+    padding: 5px 10px;
+    overflow: hidden;
+}
+/*____________ SETTINGS _____________*/
+.settingsSec {
+    width: calc(70% - 10px - 20px);
+    min-height: 350px;
+    max-height: 350px;
+    padding: 5px 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.settingsSec h2 {
+    width: 100%;
+}
+.settingsSec #inputContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+}
+.settingsSec #buttonContainer {
+    display: flex;
+    flex-flow: row;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+}
+#buttonContainer button{
+    background-color: var(--mkmLight50);
+    color: var(--mkmLight);
+    border: 1px solid var(--mkmLight25);
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+#buttonContainer button.ghost{
+    background-color: transparent;
+    border: 1px solid var(--mkmLight75);
+}
+#buttonContainer button:hover{
+    transform: translateY(-2px);
+}
+#buttonContainer button:active{
+    transform: translateY(1px);
+    transition: 0s;
+}
+
+#buttonContainer button:focus-visible{
+    border: 0px;
+}
+
+
 
