@@ -1,5 +1,5 @@
 {
-  "name": "MarkMed Darker PDF",
+  "name": "MarkMed DarkPDF",
   "description": "MarkMed Chrome Extension to turn darker the PDF browser viewer",
   "version": "1.0.0",
   "manifest_version": 3,
@@ -8,21 +8,23 @@
     "webRequest",
     "scripting",
     "activeTab",
-    "clipboardRead",
-    "clipboardWrite",
     "tabs"
   ],
   "host_permissions": [
-    "file:///*.pdf"
+    "file:///*.pdf",
+    "*://*/*.pdf"
   ],
   "action": {
-    "default_title": "MarkMed Darker PDF",
+    "default_title": "MarkMed DarkPDF",
     "default_icon": "./assets/mkmPDF.png"
   },
   "content_scripts": [
     {
       "matches": [
-        "file:///*.pdf"
+        "file:///*.pdf",
+        "*://*/*.pdf",
+        "file:///*.pdf?*",
+        "*://*/*.pdf?*"
       ],
       "css": ["./styles/modalStyles.css"],
       "js": [
